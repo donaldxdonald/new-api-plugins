@@ -1,0 +1,23 @@
+Donald Mok's New API Plugins uses files from QuantumNous/new-api-plugins
+under the Apache-2.0 license.
+
+Upstream: https://github.com/QuantumNous/new-api-plugins
+Revision: e9b80f12e59e561d7c10d487faa6916a66fc611d
+
+Files adapted or copied:
+- tools/pluginindex/main.go, go.mod and go.sum
+- docs/marketplace.md
+- AGENTS.md
+- .gitignore
+- LICENSE
+
+Local changes:
+- tools/pluginindex/main.go uses "Donald Mok's New API Plugins" as the name.
+- tools/pluginindex/go.mod and go.sum use dependencies for New API rc.47.
+- docs/marketplace.md and AGENTS.md have been edited for this repository.
+- The local validation workflow pins the New API runtime instead of following main.
+
+Cloudflare AI 0.5.1 keeps the previously distributed plugin.js unchanged.
+Its English and Chinese release notes have been edited before publication.
+
+This marketplace is independent of QuantumNous and Cloudflare.

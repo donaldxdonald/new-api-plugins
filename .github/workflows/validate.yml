@@ -1,0 +1,58 @@
+name: Validate marketplace
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  # Keep compilation on the host revision used to verify Cloudflare AI 0.5.1.
+  NEW_API_REF: e835b1bfc43b565d625537830dbfb19328925134
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout marketplace
+        uses: actions/checkout@v4
+        with:
+          path: new-api-plugins
+          fetch-depth: 0
+
+      - name: Checkout New API runtime
+        uses: actions/checkout@v4
+        with:
+          repository: QuantumNous/new-api
+          ref: ${{ env.NEW_API_REF }}
+          path: new-api
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: new-api/go.mod
+          cache-dependency-path: |
+            new-api-plugins/tools/pluginindex/go.sum
+            new-api/go.sum
+            new-api/relaykit/go.sum
+
+      - name: Compile plugins and verify generated index
+        working-directory: new-api-plugins/tools/pluginindex
+        run: go run . check ../..
+
+      - name: Preserve published version directories
+        if: github.event_name == 'pull_request'
+        working-directory: new-api-plugins
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          changed=$(git diff --no-renames --name-only --diff-filter=MD "$BASE_SHA"...HEAD -- 'plugins/*/*/*/*')
+          if [ -n "$changed" ]; then
+            echo "Published version files cannot be changed or deleted:"
+            printf '%s\n' "$changed"
+            echo "Add a new version directory instead."
+            exit 1
+          fi

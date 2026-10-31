@@ -1,0 +1,177 @@
+{
+  "indexVersion": 1,
+  "name": "Donald Mok's New API Plugins",
+  "plugins": [
+    {
+      "key": "cloudflare-ai",
+      "name": "Cloudflare AI",
+      "icon": "text:CF",
+      "description": {
+        "en": "FLUX images, MiniMax H3 videos and Workers AI Clef typed decisions",
+        "zh": "FLUX 图片、MiniMax H3 视频和 Workers AI Clef 结构化判断"
+      },
+      "routes": [
+        {
+          "method": "POST",
+          "path": "/v1/systemone",
+          "type": "submit",
+          "decode": "decodeDecision",
+          "render": "renderDecision",
+          "retainResult": false,
+          "models": [
+            "@cf/cloudflare/clef",
+            "@cf/cloudflare/clef-flash",
+            "@cf/cloudflare/clef-omni"
+          ]
+        },
+        {
+          "method": "POST",
+          "path": "/v1/decisions",
+          "type": "submit",
+          "decode": "decodeOpenAIDecisions",
+          "render": "renderOpenAIDecisions",
+          "retainResult": false,
+          "models": [
+            "@cf/cloudflare/clef",
+            "@cf/cloudflare/clef-flash",
+            "@cf/cloudflare/clef-omni"
+          ]
+        }
+      ],
+      "protocols": [
+        {
+          "name": "openai_image",
+          "models": [
+            "@cf/black-forest-labs/flux-1-schnell"
+          ]
+        },
+        {
+          "name": "openai_video",
+          "models": [
+            "minimax/h3"
+          ]
+        }
+      ],
+      "usageSchema": null,
+      "usageExamples": null,
+      "usageProfiles": [
+        {
+          "models": [
+            "@cf/black-forest-labs/flux-1-schnell"
+          ],
+          "schema": {
+            "image_count": {
+              "type": "number",
+              "unit": "count",
+              "description": {
+                "en": "Image generation unit price",
+                "zh": "图片生成单价"
+              }
+            },
+            "steps": {
+              "type": "number",
+              "unit": "count",
+              "description": {
+                "en": "Image generation step unit price",
+                "zh": "图片生成步数单价"
+              }
+            }
+          },
+          "examples": [
+            {
+              "label": "1 image, 4 steps",
+              "facts": {
+                "image_count": 1,
+                "steps": 4
+              }
+            }
+          ]
+        },
+        {
+          "models": [
+            "minimax/h3"
+          ],
+          "schema": {
+            "resolution": {
+              "enum": [
+                "768P",
+                "2K"
+              ],
+              "description": {
+                "en": "Output video resolution",
+                "zh": "输出视频分辨率"
+              }
+            },
+            "seconds": {
+              "type": "number",
+              "unit": "second",
+              "description": {
+                "en": "Video generation unit price",
+                "zh": "视频生成单价"
+              }
+            }
+          },
+          "examples": [
+            {
+              "label": "5s, 768P",
+              "facts": {
+                "resolution": "768P",
+                "seconds": 5
+              }
+            },
+            {
+              "label": "5s, 2K",
+              "facts": {
+                "resolution": "2K",
+                "seconds": 5
+              }
+            }
+          ]
+        },
+        {
+          "models": [
+            "@cf/cloudflare/clef",
+            "@cf/cloudflare/clef-flash",
+            "@cf/cloudflare/clef-omni"
+          ],
+          "schema": {
+            "input_tokens": {
+              "type": "number",
+              "unit": "token",
+              "description": {
+                "en": "Input token unit price",
+                "zh": "输入 token 单价"
+              }
+            }
+          },
+          "examples": [
+            {
+              "label": "1,000 input tokens",
+              "facts": {
+                "input_tokens": 1000
+              }
+            }
+          ]
+        }
+      ],
+      "models": [
+        "@cf/black-forest-labs/flux-1-schnell",
+        "minimax/h3",
+        "@cf/cloudflare/clef",
+        "@cf/cloudflare/clef-flash",
+        "@cf/cloudflare/clef-omni"
+      ],
+      "latest": "0.5.1",
+      "versions": [
+        {
+          "version": "0.5.1",
+          "path": "plugins/tasks/cloudflare-ai/0.5.1/plugin.js",
+          "sha256": "804f080a667eb62581ee8a1b4073cca1d28d144d16610d0993d5c2742ad86221",
+          "minApiVersion": 1,
+          "kind": "task",
+          "auth": "api_key"
+        }
+      ]
+    }
+  ]
+}
