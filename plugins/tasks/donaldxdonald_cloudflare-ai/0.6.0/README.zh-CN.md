@@ -3,7 +3,7 @@ locale: zh-CN
 ---
 # Cloudflare AI
 
-版本 `0.6.0`，插件 key 为 `cloudflare-ai`。仅支持下表中的模型。
+版本 `0.6.0`，插件 key 为 `donaldxdonald_cloudflare-ai`。仅支持下表中的模型。
 
 | 模型 | New API 接口 | 能力 |
 | --- | --- | --- |
@@ -17,9 +17,9 @@ locale: zh-CN
 
 用 root 管理员账号安装并激活插件。需要 New API `v1.0.0-rc.51` 或更新版本。
 
-本插件与官方 TypeSafe 插件可同时使用 `POST /v1/systemone`。为各渠道选择对应插件和支持的模型。也可以使用带插件前缀的路径，例如 `/cloudflare-ai/v1/systemone`。
+本插件与官方 TypeSafe 插件可同时使用 `POST /v1/systemone`。为各渠道选择对应插件和支持的模型。也可以使用带插件前缀的路径，例如 `/donaldxdonald_cloudflare-ai/v1/systemone`。
 
-创建两个 Task Plugin 渠道，都选择 `cloudflare-ai`：
+创建两个 Task Plugin 渠道，都选择 `donaldxdonald_cloudflare-ai`：
 
 | 配置 | Workers AI 直连渠道 | 第三方 AI Gateway 渠道 |
 | --- | --- | --- |

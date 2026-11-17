@@ -12,11 +12,11 @@ const DECISION_CONTEXT = {
 // Keep metadata literal so the upload dialog can preview it without executing code.
 export const meta = {
   apiVersion: 1,
-  key: "cloudflare-ai",
+  key: "donaldxdonald_cloudflare-ai",
   name: "Cloudflare AI",
   icon: "text:CF",
   version: "0.5.1",
-  author: { name: "Local custom plugin" },
+  author: { name: "donaldxdonald", url: "https://github.com/donaldxdonald" },
   description: {
     en: "FLUX images, MiniMax H3 videos and Workers AI Clef typed decisions",
     zh: "FLUX 图片、MiniMax H3 视频和 Workers AI Clef 结构化判断",

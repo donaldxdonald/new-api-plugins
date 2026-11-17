@@ -1,6 +1,6 @@
 ---
 changelogVersion: 1
-plugin: "cloudflare-ai"
+plugin: "donaldxdonald_cloudflare-ai"
 version: "0.5.1"
 locale: "zh-CN"
 ---

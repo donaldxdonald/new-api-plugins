@@ -14,13 +14,13 @@ This example omits optional display metadata:
   "name": "Donald Mok's New API Plugins",
   "plugins": [
     {
-      "key": "cloudflare-ai",
+      "key": "donaldxdonald_cloudflare-ai",
       "name": "Cloudflare AI",
       "latest": "0.5.1",
       "versions": [
         {
           "version": "0.5.1",
-          "path": "plugins/tasks/cloudflare-ai/0.5.1/plugin.js",
+          "path": "plugins/tasks/donaldxdonald_cloudflare-ai/0.5.1/plugin.js",
           "sha256": "<SHA-256 of the plugin.js bytes>",
           "minApiVersion": 1,
           "kind": "task",

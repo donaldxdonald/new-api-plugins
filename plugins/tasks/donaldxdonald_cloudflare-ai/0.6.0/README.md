@@ -17,11 +17,11 @@ Version `0.6.0` requires New API `v1.0.0-rc.51` or later. Install and activate i
 | `@cf/cloudflare/clef-flash` | Same | Structured decisions |
 | `@cf/cloudflare/clef-omni` | Same | Structured decisions; System One also accepts embedded audio and video |
 
-Cloudflare AI and TypeSafe can both serve `/v1/systemone` on this host baseline. Configure each channel with its own plugin and supported models. A plugin-prefixed path such as `/cloudflare-ai/v1/systemone` is also available.
+Cloudflare AI and TypeSafe can both serve `/v1/systemone` on this host baseline. Configure each channel with its own plugin and supported models. A plugin-prefixed path such as `/donaldxdonald_cloudflare-ai/v1/systemone` is also available.
 
 ## Channel setup
 
-Create two **Task Plugin** channels and select `cloudflare-ai` on both.
+Create two **Task Plugin** channels and select `donaldxdonald_cloudflare-ai` on both.
 
 | Setting | Workers AI channel | AI Gateway channel |
 | --- | --- | --- |
