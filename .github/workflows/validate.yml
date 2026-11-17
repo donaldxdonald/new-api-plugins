@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 env:
-  # Keep compilation on the host revision used to verify Cloudflare AI 0.5.1.
-  NEW_API_REF: e835b1bfc43b565d625537830dbfb19328925134
+  # Keep compilation on the host revision used to verify Cloudflare AI 0.6.0.
+  NEW_API_REF: c9c6da2786b6a0912215127e78e28fbc6650c85f
 
 jobs:
   validate:

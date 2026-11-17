@@ -13,7 +13,9 @@ Files adapted or copied:
 
 Local changes:
 - tools/pluginindex/main.go uses "Donald Mok's New API Plugins" as the name.
-- tools/pluginindex/go.mod and go.sum use dependencies for New API rc.47.
+- tools/pluginindex/go.mod and go.sum use dependencies for New API rc.51.
+- Documentation index descriptors and translation parsing in tools/pluginindex/main.go
+  are adapted from upstream revision ffa06162bc25d2f17b3346bfa6b120335878e116.
 - docs/marketplace.md and AGENTS.md have been edited for this repository.
 - The local validation workflow pins the New API runtime instead of following main.
 

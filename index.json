@@ -161,15 +161,53 @@
         "@cf/cloudflare/clef-flash",
         "@cf/cloudflare/clef-omni"
       ],
-      "latest": "0.5.1",
+      "latest": "0.6.0",
       "versions": [
+        {
+          "version": "0.6.0",
+          "path": "plugins/tasks/cloudflare-ai/0.6.0/plugin.js",
+          "sha256": "b8ebdf1d7dadc5b68b5b6ff25073ffaede334be81040bdff65c0d55ecc473d5f",
+          "minApiVersion": 1,
+          "kind": "task",
+          "auth": "api_key",
+          "readme": {
+            "path": "plugins/tasks/cloudflare-ai/0.6.0/README.md",
+            "sha256": "b37116a2782eabc2d0a1a5e87b9b7497a7ef15ab87cff2d800f3b9de2bbc7ec9",
+            "translations": {
+              "zh-CN": {
+                "path": "plugins/tasks/cloudflare-ai/0.6.0/README.zh-CN.md",
+                "sha256": "1ec9d1c4876e0495f189df334044f71fdd0aa9af83fa71717dc59dab9fe693a1"
+              }
+            }
+          },
+          "changelog": {
+            "path": "plugins/tasks/cloudflare-ai/0.6.0/CHANGELOG.md",
+            "sha256": "9a5f12cdd55a482aa3794dcf7e770818a2e423de67f59be4617ddb63d225a43e",
+            "translations": {
+              "zh-CN": {
+                "path": "plugins/tasks/cloudflare-ai/0.6.0/CHANGELOG.zh-CN.md",
+                "sha256": "931d5a6db5f4e8f93988ebf0df0fa8d62090e7594852c657a9082cb25b802316"
+              }
+            }
+          }
+        },
         {
           "version": "0.5.1",
           "path": "plugins/tasks/cloudflare-ai/0.5.1/plugin.js",
           "sha256": "804f080a667eb62581ee8a1b4073cca1d28d144d16610d0993d5c2742ad86221",
           "minApiVersion": 1,
           "kind": "task",
-          "auth": "api_key"
+          "auth": "api_key",
+          "changelog": {
+            "path": "plugins/tasks/cloudflare-ai/0.5.1/CHANGELOG.md",
+            "sha256": "2ea76f8cd7b4287b77b01cf2be519b902ac8b192dba985e0a3c4ae50f92411ee",
+            "translations": {
+              "zh-CN": {
+                "path": "plugins/tasks/cloudflare-ai/0.5.1/CHANGELOG.zh-CN.md",
+                "sha256": "f7f6e82b939b13300fc700f8424c4ca0c431e3c6e48237da038ace4bd83c7502"
+              }
+            }
+          }
         }
       ]
     }

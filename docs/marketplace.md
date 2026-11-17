@@ -53,6 +53,10 @@ Usage fields keep their localized `description`, `unitLabel`, and `enumLabels`. 
 
 `baseUrl`, when declared, is the default copied to a Task Plugin channel if the administrator leaves its Base URL empty. Displaying it before installation shows where the channel credential will be sent.
 
+Version entries may include `readme` and `changelog` descriptors. Each contains a repository-relative `path`, a `sha256`, and an optional `translations` map from locale tags to `{path, sha256}`. The index tool reads these files from each version directory and follows the English file's YAML `translations` map. It leaves the descriptor out when the English file does not exist, preserving support for older releases.
+
+New API rc.51 loads these files in the installation dialog. An absent `readme` descriptor means no usage guide is shown; an absent `changelog` descriptor falls back to `CHANGELOG.md` beside `plugin.js`. Keep the files on the index origin.
+
 ## Installation checks
 
 The index is generated metadata, not proof that a plugin is safe. Installation still verifies the source hash, compiles the plugin, runs `ValidateV1Meta`, and checks for routing conflicts. The compiled manifest decides what the host accepts.
@@ -63,6 +67,7 @@ The index supplies the catalog, version list, and source hashes. `tools/pluginin
 
 ```text
 plugins/<kind>/<key>/<version>/plugin.js
+plugins/<kind>/<key>/<version>/README.md
 plugins/<kind>/<key>/<version>/CHANGELOG.md
 plugins/<kind>/<key>/icon.svg
 index.json
@@ -71,6 +76,20 @@ index.json
 The logo is optional and can be PNG instead of SVG. `tasks` is the supported kind directory; plugins do not declare `meta.kind`.
 
 The tool checks that `<key>` and `<version>` match `meta.key` and `meta.version`. Once published, a version directory must not change. Publish fixes in a new directory with a new version.
+
+## Usage guides
+
+New versions include an English `README.md` beside `plugin.js`. It covers channel setup, models and endpoints, usage-based pricing, a request example, and relevant limits. Optional translations use `README.<locale>.md` and are declared in the English file:
+
+```yaml
+---
+locale: en
+translations:
+  zh-CN: README.zh-CN.md
+---
+```
+
+The translated file may declare its own `locale`, but no `translations` map. Guides start with a level-one heading and use Markdown without raw HTML, images, or footnotes. Each file is at most 256 KiB; at most ten translations are allowed. The index tool checks translation references and hashes; it does not validate the Markdown body.
 
 ## Release notes
 

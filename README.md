@@ -8,9 +8,9 @@ Donald Mok 维护的 New API 任务插件市场，目前收录 Cloudflare AI 扩
 
 | 插件 | 当前版本 | 支持范围 | 配置 |
 | --- | --- | --- | --- |
-| Cloudflare AI | `0.5.1` | FLUX 图片、MiniMax H3 视频、Clef 结构化判断 | [使用说明](docs/cloudflare-ai.md) |
+| Cloudflare AI | `0.6.0` | FLUX 图片、MiniMax H3 视频、Clef 结构化判断 | [使用说明](docs/cloudflare-ai.md) |
 
-Cloudflare AI `0.5.1` 保留原单文件版本的源码。发布后不再修改该版本目录。
+Cloudflare AI `0.6.0` 增加 Gateway ID 渠道配置和密钥格式检查。已发布的 `0.5.1` 保持不变。
 
 ## 添加市场源
 
@@ -25,18 +25,20 @@ https://raw.githubusercontent.com/YOUR_GITHUB_OWNER/YOUR_REPOSITORY/main/index.j
 选择该源，安装并激活 Cloudflare AI。也可以在上传弹窗中直接使用插件地址：
 
 ```text
-https://raw.githubusercontent.com/YOUR_GITHUB_OWNER/YOUR_REPOSITORY/main/plugins/tasks/cloudflare-ai/0.5.1/plugin.js
+https://raw.githubusercontent.com/YOUR_GITHUB_OWNER/YOUR_REPOSITORY/main/plugins/tasks/cloudflare-ai/0.6.0/plugin.js
 ```
 
 其他 HTTPS 静态托管也可以使用。保留仓库目录结构，并允许 CORS，因为管理员的浏览器会直接读取索引和源码。不要只上传 `index.json`。
 
-安装时，New API 会核对源码 SHA-256、编译插件并检查路由冲突。Cloudflare AI 按 `v1.0.0-rc.47` 验证，依赖 `json-order@1` 等能力。索引里的 `minApiVersion: 1` 指插件 API 版本，不是 New API 发布版本。
+安装时，New API 会核对源码 SHA-256、编译插件并检查路由冲突。Cloudflare AI `0.6.0` 需要 `v1.0.0-rc.51` 或更新版本，使用渠道配置和密钥校验钩子。索引里的 `minApiVersion: 1` 指插件 API 版本，不是 New API 发布版本。
 
 ## 目录
 
 ```text
-plugins/tasks/cloudflare-ai/0.5.1/
+plugins/tasks/cloudflare-ai/0.6.0/
   plugin.js
+  README.md
+  README.zh-CN.md
   CHANGELOG.md
   CHANGELOG.zh-CN.md
 docs/
@@ -60,11 +62,11 @@ workspace/
   new-api-plugins/
 ```
 
-CI 固定使用 rc.47 的 commit `e835b1bfc43b565d625537830dbfb19328925134`。在本仓库根目录执行：
+CI 固定使用 rc.51 的 commit `c9c6da2786b6a0912215127e78e28fbc6650c85f`。在本仓库根目录执行：
 
 ```bash
 git clone https://github.com/QuantumNous/new-api.git ../new-api
-git -C ../new-api checkout e835b1bfc43b565d625537830dbfb19328925134
+git -C ../new-api checkout c9c6da2786b6a0912215127e78e28fbc6650c85f
 cd tools/pluginindex
 go run . generate ../..
 go run . check ../..
@@ -78,8 +80,8 @@ go run . check ../..
 
 ## 维护
 
-- 修复或新增功能时，创建 `plugins/tasks/<key>/<version>/plugin.js`，修改 `meta.version`，并添加英文 `CHANGELOG.md`。
-- 中文更新记录放在 `CHANGELOG.zh-CN.md`，由英文文件的 `translations` 字段声明。
+- 修复或新增功能时，创建 `plugins/tasks/<key>/<version>/plugin.js`，修改 `meta.version`，并添加英文 `README.md` 和 `CHANGELOG.md`。
+- 中文更新记录放在 `CHANGELOG.zh-CN.md`，由英文文件的 `translations` 字段声明。中文使用说明为 `README.zh-CN.md`，由英文 `README.md` 的 `translations` 声明。
 - 提交新版本及更新记录时，一并提交重新生成的 `index.json`。
 - 不提交 token、账号凭据、真实渠道配置或推理日志。
 - 上游来源和本地修改见 [NOTICE](NOTICE)，许可证见 [LICENSE](LICENSE)。
