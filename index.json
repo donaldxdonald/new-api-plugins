@@ -7,8 +7,8 @@
       "name": "Cloudflare AI",
       "icon": "text:CF",
       "description": {
-        "en": "DeepSeek and GLM chat, FLUX images, MiniMax H3 videos and Clef typed decisions",
-        "zh": "DeepSeek 和 GLM 对话、FLUX 图片、MiniMax H3 视频和 Clef 结构化判断"
+        "en": "OpenAI-compatible chat with custom model names, FLUX images, MiniMax H3 videos and Clef typed decisions",
+        "zh": "支持自定义模型名称的 OpenAI 兼容对话、FLUX 图片、MiniMax H3 视频和 Clef 结构化判断"
       },
       "routes": [
         {
@@ -166,8 +166,36 @@
       "task": true,
       "provider": true,
       "transform": false,
-      "latest": "0.7.0",
+      "latest": "0.7.1",
       "versions": [
+        {
+          "version": "0.7.1",
+          "path": "plugins/tasks/donaldxdonald_cloudflare-ai/0.7.1/plugin.js",
+          "sha256": "a38e6391325712a0ac4308ce026f5d79a55eb549ae8149ef47e7fc0dfade13a4",
+          "minApiVersion": 1,
+          "kind": "task",
+          "auth": "api_key",
+          "readme": {
+            "path": "plugins/tasks/donaldxdonald_cloudflare-ai/0.7.1/README.md",
+            "sha256": "8cee7e83cb32d3d7a745d1096b30bea25788ba44c70b6383d5b1f563a4b10a28",
+            "translations": {
+              "zh-CN": {
+                "path": "plugins/tasks/donaldxdonald_cloudflare-ai/0.7.1/README.zh-CN.md",
+                "sha256": "73fa73a8d91f86a02ad5d262d80744b9d51f7442c81f7ba705cdcba42324e105"
+              }
+            }
+          },
+          "changelog": {
+            "path": "plugins/tasks/donaldxdonald_cloudflare-ai/0.7.1/CHANGELOG.md",
+            "sha256": "a9f0ff604d2cf9ca6c10aa99c4401ff64aec245883cbb97720295b77a0e0e74c",
+            "translations": {
+              "zh-CN": {
+                "path": "plugins/tasks/donaldxdonald_cloudflare-ai/0.7.1/CHANGELOG.zh-CN.md",
+                "sha256": "f497cbce3b398031ced886a95a1066e4d8fb6977decfb289030d357bc3a505f5"
+              }
+            }
+          }
+        },
         {
           "version": "0.7.0",
           "path": "plugins/tasks/donaldxdonald_cloudflare-ai/0.7.0/plugin.js",
