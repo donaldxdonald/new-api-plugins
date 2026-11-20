@@ -8,9 +8,9 @@ Donald Mok 维护的 New API 任务插件市场，目前收录 Cloudflare AI 扩
 
 | 插件 | 当前版本 | 支持范围 | 配置 |
 | --- | --- | --- | --- |
-| Cloudflare AI | `0.6.0` | FLUX 图片、MiniMax H3 视频、Clef 结构化判断 | [使用说明](docs/cloudflare-ai.md) |
+| Cloudflare AI | `0.7.0` | DeepSeek 和 GLM 聊天、FLUX 图片、MiniMax H3 视频、Clef 结构化判断 | [使用说明](docs/cloudflare-ai.md) |
 
-Cloudflare AI `0.6.0` 增加 Gateway ID 渠道配置和密钥格式检查。插件 key 为 `donaldxdonald_cloudflare-ai`，`0.5.1` 和 `0.6.0` 一并改用该 key。
+Cloudflare AI `0.7.0` 新增 OpenAI 兼容聊天接口。插件 key 为 `donaldxdonald_cloudflare-ai`。
 
 社区或第三方市场源要求 key 以作者 GitHub 名加下划线开头，例如 `donaldxdonald_cloudflare-ai`；官方市场源没有这一限制。从本市场安装后，需把 Task Plugin 渠道重新绑定到新 key。
 
@@ -27,17 +27,17 @@ https://raw.githubusercontent.com/YOUR_GITHUB_OWNER/YOUR_REPOSITORY/main/index.j
 选择该源，安装并激活 Cloudflare AI。也可以在上传弹窗中直接使用插件地址：
 
 ```text
-https://raw.githubusercontent.com/YOUR_GITHUB_OWNER/YOUR_REPOSITORY/main/plugins/tasks/donaldxdonald_cloudflare-ai/0.6.0/plugin.js
+https://raw.githubusercontent.com/YOUR_GITHUB_OWNER/YOUR_REPOSITORY/main/plugins/tasks/donaldxdonald_cloudflare-ai/0.7.0/plugin.js
 ```
 
 其他 HTTPS 静态托管也可以使用。保留仓库目录结构，并允许 CORS，因为管理员的浏览器会直接读取索引和源码。不要只上传 `index.json`。
 
-安装时，New API 会核对源码 SHA-256、编译插件并检查路由冲突。Cloudflare AI `0.6.0` 需要 `v1.0.0-rc.51` 或更新版本，使用渠道配置和密钥校验钩子。索引里的 `minApiVersion: 1` 指插件 API 版本，不是 New API 发布版本。
+安装时，New API 会核对源码 SHA-256、编译插件并检查路由冲突。Cloudflare AI `0.7.0` 需要 `v1.0.0-rc.51` 或更新版本。索引里的 `minApiVersion: 1` 指插件 API 版本，不是 New API 发布版本。
 
 ## 目录
 
 ```text
-plugins/tasks/donaldxdonald_cloudflare-ai/0.6.0/
+plugins/tasks/donaldxdonald_cloudflare-ai/0.7.0/
   plugin.js
   README.md
   README.zh-CN.md

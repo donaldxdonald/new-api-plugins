@@ -46,6 +46,7 @@ The tool also copies these fields from compiled metadata:
 | --- | --- |
 | `name`, `description`, `models`, `channelTypes`, `website`, `sortPriority` | Plugin display and selection |
 | `routes`, `protocols` | Endpoints and protocol bindings |
+| `task`, `provider`, `transform` | Parts of the latest version shown by marketplace filters; a plugin can have more than one |
 | `usageSchema`, `usageExamples`, `usageProfiles` | Usage fields, model scopes, and billing examples |
 | `allowedHosts`, `baseUrl`, `auth` | Version-specific installation hints |
 

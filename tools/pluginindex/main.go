@@ -104,6 +104,9 @@ type indexPlugin struct {
 	UsageProfiles  []jsplugin.UsageProfile              `json:"usageProfiles"`
 	ChannelTypes   []int                                `json:"channelTypes,omitempty"`
 	Models         []string                             `json:"models,omitempty"`
+	Task           bool                                 `json:"task"`
+	Provider       bool                                 `json:"provider"`
+	Transform      bool                                 `json:"transform"`
 	Latest         string                               `json:"latest"`
 	Versions       []indexVersion                       `json:"versions"`
 }
@@ -254,6 +257,9 @@ func collectPluginVersions(root, kindDir, kind, key string, byKey map[string]*in
 			entry.UsageProfiles = loaded.Meta.UsageProfiles
 			entry.ChannelTypes = loaded.Meta.ChannelTypes
 			entry.Models = loaded.Meta.Models
+			entry.Task = loaded.Meta.HasTaskPart()
+			entry.Provider = loaded.Meta.HasProviderPart()
+			entry.Transform = loaded.Meta.HasTransformPart()
 		}
 		entry.Versions = append(entry.Versions, indexVersion{
 			Version:       version,
